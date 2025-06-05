@@ -65,7 +65,7 @@ const Navbar = () => {
         <ul className="hidden md:flex items-center  gap-4 ">{links}</ul>
 
         <div className="hidden md:flex items-center gap-2">
-          <Link>
+          <Link to={'/register'}>
             <p className="bg-blue-500 py-2 px-4 rounded-full text-white font-semibold hover:bg-blue-700">
               Register
             </p>
