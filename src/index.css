@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Sura:wght@400;700&display=swap');
 @import "tailwindcss";
-@plugin "daisyui/theme" {
-  name: "light";
-  default: true;
-  --color-primary: blue;
-  --color-secondary: teal;
+@plugin "daisyui";
+
+* {
+  font-family: "Sura", serif;
+  font-style: normal;
 }
