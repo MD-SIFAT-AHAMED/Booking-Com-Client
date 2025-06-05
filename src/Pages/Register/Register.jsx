@@ -116,15 +116,15 @@ const Register = () => {
 
             <input
               type="submit"
-              className=" md:text-base mt-1 btn btn-primary"
+              className=" md:text-base mt-1 btn text-white bg-blue-500"
               value="Register"
             />
           </form>
           <div className="flex justify-center items-center flex-col space-y-2">
             <p className="text-center">
               Already have an account ?
-              <Link to={"/signIn"}>
-                <span className="underline cursor-pointer"> Sign in</span>
+              <Link to={"/login"}>
+                <span className="underline cursor-pointer"> Login</span>
               </Link>
               <br /> Or
             </p>

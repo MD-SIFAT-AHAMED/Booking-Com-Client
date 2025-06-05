@@ -7,29 +7,29 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {signInWithEmail,signInWithGoogle}=use(AuthContext);
+  const { signInWithEmail, signInWithGoogle } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handlerSubmit=(e)=>{
+  const handlerSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    signInWithEmail(email,password)
-    .then(()=>{
-      toast.success("SignIn Successfully");
-      navigate(location?.state || '/');
-    })
-    .catch((err)=>{
-      toast.error(err.code);
-    })
-  }
+    signInWithEmail(email, password)
+      .then(() => {
+        toast.success("SignIn Successfully");
+        navigate(location?.state || "/");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+  };
   const handlerGoogle = () => {
     signInWithGoogle()
       .then(() => {
         toast.success("Login Successfully");
-        navigate(location?.state || '/');
+        navigate(location?.state || "/");
       })
       .catch((err) => {
         toast.error(err.code);
@@ -39,8 +39,13 @@ const Login = () => {
     <div className="bg-base-200">
       <div className="max-w-screen-2xl w-11/12 mx-auto place-items-center py-10">
         <div>
-          <form onSubmit={handlerSubmit} className="fieldset border-base-300 rounded-box w-xs md:w-md border md:text-base p-4 *:focus:outline-none *:border-none *:w-full">
-            <h3 className="text-2xl md:text-4xl text-center font-semibold">Login</h3>
+          <form
+            onSubmit={handlerSubmit}
+            className="fieldset border-base-300 rounded-box w-xs md:w-md border md:text-base p-4 *:focus:outline-none *:border-none *:w-full"
+          >
+            <h3 className="text-2xl md:text-4xl text-center font-semibold">
+              Login
+            </h3>
             <label>Email</label>
             <input
               type="email"
@@ -78,19 +83,27 @@ const Login = () => {
 
             <input
               type="submit"
-              className=" md:text-base btn btn-primary"
-              value="Sign In"
+              className=" md:text-base btn text-white bg-blue-500"
+              value="Log in"
             />
           </form>
-          <div onClick={handlerGoogle} className="flex justify-center items-center flex-col space-y-2">
+          <div
+            className="flex justify-center items-center flex-col space-y-2"
+          >
             <p className="text-center">
               Don't have an account ?
               <Link to={"/register"}>
-                <span className="underline cursor-pointer"> Register</span>
+                <span className="underline cursor-pointer">
+                  {" "}
+                  Register
+                </span>
               </Link>
               <br /> Or
             </p>
-            <span className="flex gap-2 btn border-none">
+            <span
+              onClick={handlerGoogle}
+              className="flex gap-2 btn border-none"
+            >
               <FcGoogle size={25} />
               Login with Google
             </span>
