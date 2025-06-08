@@ -35,7 +35,7 @@ const Banner = () => {
           dynamicBullets: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="bannerSwiper"
       >
         {sliderData.map((banner) => (
           <SwiperSlide key={banner.id}>
@@ -46,9 +46,15 @@ const Banner = () => {
                 alt="hotelRooms"
               />
               <div className="absolute top-[40%] left-2 md:left-[10%] space-y-2 bg-white/70 rounded p-5 md:p-10">
-                <h2 className=" text-2xl md:text-5xl text-black/70 text-shadow-lg font-bold">{banner.heading}</h2>
-                <p className="md:text-lg font-semibold text-black/70">{banner.description}</p>
-                <button className="btn border-none text-black/70 bg-gray-200 rounded-lg">Explore Room</button>
+                <h2 className=" text-2xl md:text-5xl text-black/70 text-shadow-lg font-bold">
+                  {banner.heading}
+                </h2>
+                <p className="md:text-lg font-semibold text-black/70">
+                  {banner.description}
+                </p>
+                <button className="btn border-none text-black/70 bg-gray-200 rounded-lg">
+                  Explore Room
+                </button>
               </div>
             </div>
           </SwiperSlide>
