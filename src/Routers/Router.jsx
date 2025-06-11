@@ -6,35 +6,38 @@ import Login from "../Pages/Login/Login";
 import Error from "../Pages/Error/Error";
 import Rooms from "../Pages/Rooms/Rooms";
 import RoomDetails from "../Pages/RoomDetails/RoomDetails";
+import Sppiner from "../Pages/Shared/Sppiner";
 
 const router = createBrowserRouter([
-    {
-        path:'/',
-        Component:MainLayout,
-        errorElement:<Error/>,
-        children:[
-            {
-                index:true,
-                Component:Home
-            },
-            {
-                path:'/register',
-                Component:Register
-            },
-            {
-                path:'/login',
-                Component:Login
-            },
-            {
-                path:'/rooms',
-                loader:()=> fetch('http://localhost:5000/rooms'),
-                Component:Rooms
-            },
-            {
-                path:'/roomDetails/:roomId',
-                Component:RoomDetails
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    Component: MainLayout,
+    hydrateFallbackElement: <Sppiner />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/rooms",
+        hydrateFallbackElement: <Sppiner />,
+        loader: () => fetch("http://localhost:5000/rooms"),
+        Component: Rooms,
+      },
+      {
+        path: "/roomDetails/:roomId",
+        Component: RoomDetails,
+      },
+    ],
+  },
+]);
 export default router;

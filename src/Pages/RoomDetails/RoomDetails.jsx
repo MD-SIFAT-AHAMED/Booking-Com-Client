@@ -6,27 +6,30 @@ import { RxCross1 } from "react-icons/rx";
 import { useParams } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
+import Sppiner from "../Shared/Sppiner";
 
 const RoomDetails = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-  const[roomData,setRoomData]=useState(null);
+  const [roomData, setRoomData] = useState(null);
+  const [reload, setReload] = useState(false);
   const { user } = useAuth();
-  const {roomId} = useParams();
+  const { roomId } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/rooms/${roomId}`)
-    .then((res) => {
+    axios
+      .get(`http://localhost:5000/rooms/${roomId}`)
+      .then((res) => {
         setRoomData(res.data);
-    })
-    .catch(err => {
-      console.error("Failed to fetch room:", err);
-      toast.error("Could not load room details.");
-    });
-  }, [roomId]);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch room:", err);
+        toast.error("Could not load room details.");
+      });
+  }, [roomId, reload]);
 
   if (!roomData) {
-    return <p className="text-center py-8 text-gray-500">Loading room details...</p>;
+    return <Sppiner />;
   }
 
   const {
@@ -48,15 +51,20 @@ const RoomDetails = () => {
   };
 
   const handleBookingConfirm = () => {
-    const bookRoomData = { ...roomData };
-    bookRoomData.email = user.email;
-    bookRoomData.name = user.displayName;
-    bookRoomData.bookingDate = selectedDate;
-    console.log(bookRoomData);
+    const { _id, ...restRoomData } = roomData;
+    const bookRoomData = {
+      ...restRoomData,
+      roomId: _id,
+      email: user.email,
+      name: user.displayName,
+      bookingDate: selectedDate,
+    };
+    console.log(bookRoomData)
     axios
       .post("http://localhost:5000/booking", bookRoomData)
       .then((res) => {
         if (res.data.success && res.data.insertedId) {
+          setReload(!reload);
           setShowModal(false);
           toast.success("Room booked successfully!");
         }
