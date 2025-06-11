@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import Error from "../Pages/Error/Error";
+import Rooms from "../Pages/Rooms/Rooms";
+import RoomDetails from "../Pages/RoomDetails/RoomDetails";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +24,15 @@ const router = createBrowserRouter([
             {
                 path:'/login',
                 Component:Login
+            },
+            {
+                path:'/rooms',
+                loader:()=> fetch('http://localhost:5000/rooms'),
+                Component:Rooms
+            },
+            {
+                path:'/roomDetails/:roomId',
+                Component:RoomDetails
             }
         ]
     }
