@@ -7,6 +7,8 @@ import Error from "../Pages/Error/Error";
 import Rooms from "../Pages/Rooms/Rooms";
 import RoomDetails from "../Pages/RoomDetails/RoomDetails";
 import Sppiner from "../Pages/Shared/Sppiner";
+import MyBookings from "../Pages/MyBookings/MyBookings";
+import PrivateRouter from "../Routes/PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "/roomDetails/:roomId",
         Component: RoomDetails,
+      },
+      {
+        path: "/myBookings",
+        element: (
+          <PrivateRouter>
+            <MyBookings />
+          </PrivateRouter>
+        ),
       },
     ],
   },

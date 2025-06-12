@@ -3,10 +3,11 @@ import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 import { FaStar } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import Sppiner from "../Shared/Sppiner";
+import { Navigate } from "react-router";
 
 const RoomDetails = () => {
   const [showModal, setShowModal] = useState(false);
@@ -15,6 +16,7 @@ const RoomDetails = () => {
   const [reload, setReload] = useState(false);
   const { user } = useAuth();
   const { roomId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -46,6 +48,10 @@ const RoomDetails = () => {
   } = roomData;
 
   const handlerBooking = () => {
+    if (!user) {
+      return navigate("/login");
+    }
+
     if (!available) return toast.error("This Room Already Booked");
     setShowModal(true);
   };
@@ -59,7 +65,7 @@ const RoomDetails = () => {
       name: user.displayName,
       bookingDate: selectedDate,
     };
-    console.log(bookRoomData)
+
     axios
       .post("http://localhost:5000/booking", bookRoomData)
       .then((res) => {
@@ -110,7 +116,7 @@ const RoomDetails = () => {
           onClick={handlerBooking}
           className="btn w-full bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
         >
-          {available ? "Book Now" : "Not Available"}
+          Book Now
         </button>
         <div className="my-6">
           <h3 className="text-xl font-semibold mb-2">Reviews</h3>

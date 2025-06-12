@@ -7,7 +7,7 @@ const Rooms = () => {
   // console.log(rooms);
   return (
     <div className="max-w-screen-2xl w-11/12 mx-auto my-10">
-        <h3 className="text-center text-2xl md:text-4xl font-bold my-5">All Rooms</h3>
+        <h3 className="text-2xl text-center font-bold mb-4">All Rooms</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {rooms.map((room) => (
           <RoomCard key={room._id} room={room} />
