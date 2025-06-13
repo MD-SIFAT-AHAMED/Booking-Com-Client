@@ -3,6 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { FaTrash, FaEdit, FaStar } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -19,7 +20,7 @@ const MyBookings = () => {
       .get(`http://localhost:5000/booking?email=${user.email}`)
       .then((res) => setBookings(res.data))
       .catch(() => toast.error("Failed to load bookings"));
-  }, [reload,user.email]);
+  }, [reload, user.email]);
 
   const handleCancel = () => {
     const todayDate = new Date();
@@ -38,7 +39,7 @@ const MyBookings = () => {
       .then((res) => {
         if (res.data.deletedCount) {
           toast.success("Booking cancelled successfully");
-          setShowModalCancel(false)
+          setShowModalCancel(false);
           setReload(!reload);
         }
       })
@@ -46,21 +47,26 @@ const MyBookings = () => {
   };
 
   const handleDateUpdate = () => {
-    if (!newDate) return toast.warn("Please select a new date");
+    if (!newDate) return toast.error("Please select a new date");
     axios
-      .patch(`http://localhost:5000/bookings/${selectedBooking._id}`, {
+      .patch(`http://localhost:5000/booking/${selectedBooking._id}`, {
         bookingDate: newDate,
       })
-      .then(() => {
-        toast.success("Booking date updated successfully");
-        setShowModalDate(false);
-        setReload(!reload);
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          toast.success("Booking date updated successfully");
+          setShowModalDate(false);
+          setReload(!reload);
+        }
       })
       .catch(() => toast.error("Failed to update date"));
   };
 
   return (
     <div className="max-w-screen w-11/12 mx-auto my-10">
+      <Helmet>
+        <title>My Booking</title>
+      </Helmet>
       <div className="p-4 overflow-x-auto">
         <h2 className="text-2xl text-center font-bold mb-4">My Bookings</h2>
         <table className="table w-full">
@@ -108,7 +114,7 @@ const MyBookings = () => {
                     </button>
                     <button
                       className="btn btn-info btn-xs"
-                      onClick={() => toast.info("Review form coming soon!")}
+                      onClick={() => toast.success("Review form coming soon!")}
                     >
                       <FaStar size={16} />
                     </button>
@@ -130,11 +136,14 @@ const MyBookings = () => {
                 onChange={(e) => setNewDate(e.target.value)}
               />
               <div className="modal-action">
-                <button className="btn btn-primary" onClick={handleDateUpdate}>
-                  Update
-                </button>
                 <button className="btn" onClick={() => setShowModalDate(false)}>
                   Cancel
+                </button>
+                <button
+                  className="btn bg-green-400 text-gray-100"
+                  onClick={handleDateUpdate}
+                >
+                  Update
                 </button>
               </div>
             </div>
