@@ -6,6 +6,7 @@ import { Pagination } from "swiper/modules";
 import banner1 from "../../assets/banner1.jpg";
 import banner2 from "../../assets/banner2.jpg";
 import banner3 from "../../assets/banner3.jpg";
+import { motion } from "motion/react";
 const Banner = () => {
   const sliderData = [
     {
@@ -45,7 +46,13 @@ const Banner = () => {
                 src={banner.image}
                 alt="hotelRooms"
               />
-              <div className="absolute top-[40%] left-2 md:left-[10%] space-y-2 bg-white/70 rounded p-5 md:p-10">
+              <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 3}}
+                
+                className="absolute top-[40%] left-2 md:left-[10%] space-y-2 bg-white/70 rounded p-5 md:p-10"
+              >
                 <h2 className=" text-2xl md:text-5xl text-black/70 text-shadow-lg font-bold">
                   {banner.heading}
                 </h2>
@@ -55,7 +62,7 @@ const Banner = () => {
                 <button className="btn border-none text-black/70 bg-gray-200 rounded-lg">
                   Explore Room
                 </button>
-              </div>
+              </motion.div>
             </div>
           </SwiperSlide>
         ))}

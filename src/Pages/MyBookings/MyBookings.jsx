@@ -3,7 +3,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { FaTrash, FaEdit, FaStar } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet-async";
+
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -16,6 +17,9 @@ const MyBookings = () => {
   const { user } = useAuth();
 
   useEffect(() => {
+    {
+      document.title='My Booking'
+    }
     axios
       .get(`http://localhost:5000/booking?email=${user.email}`)
       .then((res) => setBookings(res.data))
@@ -64,9 +68,9 @@ const MyBookings = () => {
 
   return (
     <div className="max-w-screen w-11/12 mx-auto my-10">
-      <Helmet>
+      {/* <Helmet key={location.pathname}>
         <title>My Booking</title>
-      </Helmet>
+      </Helmet> */}
       <div className="p-4 overflow-x-auto">
         <h2 className="text-2xl text-center font-bold mb-4">My Bookings</h2>
         <table className="table w-full">
