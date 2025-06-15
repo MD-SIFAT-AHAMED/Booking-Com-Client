@@ -3,8 +3,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { FaTrash, FaEdit, FaStar } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
-// import { Helmet } from "react-helmet-async";
-
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -13,12 +13,16 @@ const MyBookings = () => {
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [showModalCandel, setShowModalCancel] = useState(false);
   const [selectedCancel, setSelectedCancel] = useState(null);
+  const [showModalReview, setShowModalReviw] = useState(false);
+  const [selectedReview, setSelectedReview] = useState(null);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
   const [newDate, setNewDate] = useState("");
   const { user } = useAuth();
 
   useEffect(() => {
     {
-      document.title='My Booking'
+      document.title = "My Booking";
     }
     axios
       .get(`http://localhost:5000/booking?email=${user.email}`)
@@ -64,6 +68,27 @@ const MyBookings = () => {
         }
       })
       .catch(() => toast.error("Failed to update date"));
+  };
+
+  const handlerReview = () => {
+    const review = {
+      user: user.displayName,
+      rating: rating,
+      comment: comment,
+    };
+    axios
+      .put(`http://localhost:5000/rooms/${selectedReview.roomId}/review`, {
+        review,
+      })
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          setShowModalReviw(false);
+          toast.success("Review submitted successfully");
+        }
+      })
+      .catch(() => {
+        toast.error("Review Not Successfully");
+      });
   };
 
   return (
@@ -117,10 +142,13 @@ const MyBookings = () => {
                       Update Date
                     </button>
                     <button
-                      className="btn btn-info btn-xs"
-                      onClick={() => toast.success("Review form coming soon!")}
+                      className="btn btn-info text-gray-200"
+                      onClick={() => {
+                        setShowModalReviw(true);
+                        setSelectedReview(booking);
+                      }}
                     >
-                      <FaStar size={16} />
+                      Review
                     </button>
                   </div>
                 </td>
@@ -170,6 +198,55 @@ const MyBookings = () => {
                   onClick={handleCancel}
                 >
                   Confrim
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {showModalReview && (
+          <div className="modal modal-open">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg mb-4">Review this Room</h3>
+
+              {/* Star Rating */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-1">
+                  Your Rating:
+                </label>
+                <Rating
+                  style={{ maxWidth: 180 }}
+                  value={rating}
+                  onChange={setRating}
+                />
+              </div>
+
+              {/*Comment Box */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-1">
+                  Your Comment:
+                </label>
+                <textarea
+                  className="textarea textarea-bordered w-full"
+                  rows="4"
+                  placeholder="Write your review here..."
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                />
+              </div>
+
+              <div className="modal-action">
+                <button
+                  className="btn"
+                  onClick={() => setShowModalReviw(false)}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="btn bg-green-500 text-gray-100"
+                  onClick={handlerReview}
+                >
+                  Submit
                 </button>
               </div>
             </div>

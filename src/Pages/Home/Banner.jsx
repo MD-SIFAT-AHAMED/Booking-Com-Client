@@ -47,10 +47,11 @@ const Banner = () => {
                 alt="hotelRooms"
               />
               <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 3}}
-                
+                initial={{ opacity: 0, x: 100 }}
+                transition={{ duration: 1.5 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                // viewport={{once:true}}
+
                 className="absolute top-[40%] left-2 md:left-[10%] space-y-2 bg-white/70 rounded p-5 md:p-10"
               >
                 <h2 className=" text-2xl md:text-5xl text-black/70 text-shadow-lg font-bold">
