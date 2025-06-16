@@ -13,33 +13,35 @@ import PrivateRouter from "../Routes/PrivateRouter";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
     hydrateFallbackElement: <Sppiner />,
     errorElement: <Error />,
     children: [
       {
         index: true,
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: "/register",
-        element: <Register/>,
+        element: <Register />,
       },
       {
         path: "/login",
-        element: <Login/>,
+        element: <Login />,
       },
       {
         path: "/rooms",
         hydrateFallbackElement: <Sppiner />,
-        element: <Rooms/>,
+        element: <Rooms />,
       },
       {
         path: "/roomDetails/:roomId",
-        element: <RoomDetails/>,
+        hydrateFallbackElement: <Sppiner />,
+        element: <RoomDetails />,
       },
       {
         path: "/myBookings",
+        hydrateFallbackElement: <Sppiner />,
         element: (
           <PrivateRouter>
             <MyBookings />

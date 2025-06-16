@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { FaTrash, FaEdit, FaStar } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Link } from "react-router";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -20,16 +20,17 @@ const MyBookings = () => {
   const [comment, setComment] = useState("");
   const [newDate, setNewDate] = useState("");
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     {
       document.title = "My Booking";
     }
-    axios
-      .get(`http://localhost:5000/booking?email=${user.email}`)
+    axiosSecure
+      .get(`/booking?email=${user.email}`)
       .then((res) => setBookings(res.data))
       .catch(() => toast.error("Failed to load bookings"));
-  }, [reload, user.email]);
+  }, [reload, user.email,axiosSecure]);
 
   const handleCancel = () => {
     const todayDate = new Date();
@@ -43,8 +44,8 @@ const MyBookings = () => {
       );
     }
 
-    axios
-      .delete(`http://localhost:5000/booking/${selectedCancel._id}`)
+    axiosSecure
+      .delete(`/booking/${selectedCancel._id}?email=${user.email}`)
       .then((res) => {
         if (res.data.deletedCount) {
           toast.success("Booking cancelled successfully");
@@ -57,8 +58,8 @@ const MyBookings = () => {
 
   const handleDateUpdate = () => {
     if (!newDate) return toast.error("Please select a new date");
-    axios
-      .patch(`http://localhost:5000/booking/${selectedBooking._id}`, {
+    axiosSecure
+      .patch(`/booking/${selectedBooking._id}?email=${user.email}`, {
         bookingDate: newDate,
       })
       .then((res) => {
@@ -77,8 +78,8 @@ const MyBookings = () => {
       rating: rating,
       comment: comment,
     };
-    axios
-      .put(`http://localhost:5000/rooms/${selectedReview.roomId}/review`, {
+    axiosSecure
+      .put(`/rooms/${selectedReview.roomId}/review?email=${user.email}`, {
         review,
       })
       .then((res) => {

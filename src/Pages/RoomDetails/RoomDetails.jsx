@@ -8,6 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import Sppiner from "../Shared/Sppiner";
 import { Navigate } from "react-router";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const RoomDetails = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,6 +18,7 @@ const RoomDetails = () => {
   const { user } = useAuth();
   const { roomId } = useParams();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     axios
@@ -66,8 +68,8 @@ const RoomDetails = () => {
       bookingDate: selectedDate,
     };
 
-    axios
-      .post("http://localhost:5000/booking", bookRoomData)
+   axiosSecure
+      .post(`/booking`, bookRoomData)
       .then((res) => {
         if (res.data.success && res.data.insertedId) {
           setReload(!reload);
@@ -76,7 +78,7 @@ const RoomDetails = () => {
         }
       })
       .catch((err) => {
-        toast.error(err);
+        toast.error(err.message);
       });
   };
 
