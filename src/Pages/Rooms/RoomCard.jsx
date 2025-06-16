@@ -52,7 +52,7 @@ const RoomCard = ({ room }) => {
 
         <div className="card-actions justify-end mt-4">
           <button
-            className="btn bg-blue-600 text-gray-200 hover:bg-blue-700"
+            className="btn w-full bg-blue-600 text-gray-200 hover:bg-blue-700"
             onClick={() => navigate(`/roomDetails/${_id}`)}
           >
             Details

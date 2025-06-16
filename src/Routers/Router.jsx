@@ -32,7 +32,6 @@ const router = createBrowserRouter([
       {
         path: "/rooms",
         hydrateFallbackElement: <Sppiner />,
-        loader: () => fetch("http://localhost:5000/rooms"),
         element: <Rooms/>,
       },
       {

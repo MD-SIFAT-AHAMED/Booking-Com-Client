@@ -92,7 +92,7 @@ const Navbar = () => {
               <p className="text-center my-2">{user.displayName}</p>
               <button
                 onClick={handlerLogout}
-                className="btn text-white rounded-2xl bg-red-500"
+                className="btn text-white bg-red-500"
               >
                 Log Out
               </button>
