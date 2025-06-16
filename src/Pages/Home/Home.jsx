@@ -4,6 +4,7 @@ import Faq from "./Faq";
 import Destination from "./Destination";
 import HotelLocation from "./HotelLocation";
 import { Helmet } from "react-helmet-async";
+import FeaturedRooms from "../FeaturedRooms/FeaturedRooms";
 
 const Home = () => {
   useEffect(() => {
@@ -15,8 +16,9 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <HotelLocation />
+      <FeaturedRooms/>
       <Destination />
+      <HotelLocation />
       <Faq />
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 
 const Faq = () => {
   return (
-    <div className="max-w-screen-2xl w-11/12 mx-auto">
+    <div className="max-w-screen-2xl w-11/12 mx-auto my-10">
       <h2 className="text-center text-2xl md:text-4xl font-bold my-10">FAQ</h2>
       <div className="join join-vertical bg-base-100 w-full">
         <div className="collapse collapse-arrow join-item border-base-300 border">

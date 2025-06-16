@@ -7,6 +7,7 @@ import banner1 from "../../assets/banner1.jpg";
 import banner2 from "../../assets/banner2.jpg";
 import banner3 from "../../assets/banner3.jpg";
 import { motion } from "motion/react";
+import { Link } from "react-router";
 const Banner = () => {
   const sliderData = [
     {
@@ -60,9 +61,11 @@ const Banner = () => {
                 <p className="md:text-lg font-semibold text-black/70">
                   {banner.description}
                 </p>
-                <button className="btn border-none text-black/70 bg-gray-200 rounded-lg">
-                  Explore Room
-                </button>
+                <Link to={'/rooms'}>
+                  <button className="btn border-none text-black/70 bg-gray-200 rounded-lg">
+                    Explore Room
+                  </button>
+                </Link>
               </motion.div>
             </div>
           </SwiperSlide>

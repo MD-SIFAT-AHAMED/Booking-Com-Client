@@ -208,7 +208,9 @@ const MyBookings = () => {
           <div className="modal modal-open">
             <div className="modal-box">
               <h3 className="font-bold text-lg mb-4">Review this Room</h3>
-
+              <p className="mb-2 text-sm font-medium">
+                User: <span className="text-gray-700"> {user.displayName}</span>
+              </p>
               {/* Star Rating */}
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1">

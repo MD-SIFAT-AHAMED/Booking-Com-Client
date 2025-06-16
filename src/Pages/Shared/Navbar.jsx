@@ -74,10 +74,10 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <ul className="hidden md:flex items-center  gap-4 ">{links}</ul>
+        <ul className="hidden md:flex items-center mr-30 gap-4 ">{links}</ul>
 
         {user ? (
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end ">
             <div tabIndex={0} role="button">
               <div className="avatar avatar-online">
                 <div className="w-10 rounded-full">
