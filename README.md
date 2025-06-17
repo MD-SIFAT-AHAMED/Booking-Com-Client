@@ -1,13 +1,33 @@
-# React + Vite
+# Booking.com - Hotel & Room Booking Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*Booking.com* is a full-featured web application that allows users to easily book hotels and rooms online. Users can browse available rooms, make bookings, leave reviews, and manage their bookings (cancel/delete).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔍 Browse hotels and available rooms
+- 🏨 Book rooms with real-time availability
+- ✏️ Add and read user reviews
+- ❌ Cancel or delete bookings
+- 🔐 Secure user authentication and authorization
+- 🧑‍💼 User dashboard to manage personal bookings
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# b11a11-client-side-MD-SIFAT-AHAMED
+---
+
+## 🛠️ Technologies Used
+
+### Frontend:
+- *React.js* – Component-based UI library
+- *Tailwind CSS* – Utility-first CSS framework for styling
+- *DaisyUI* – Tailwind CSS component library for clean design
+
+### Backend:
+- *Node.js* – Runtime environment for server-side logic
+- *Express.js* – Web application framework for building APIs
+- *MongoDB* – NoSQL database for storing booking and user data
+- *Firebase Authentication* – Secure user login and signup
+- *JWT (JSON Web Token)* – For protected routes and authorization
+
+---
+
