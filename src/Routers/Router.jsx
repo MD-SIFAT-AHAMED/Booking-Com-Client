@@ -9,6 +9,8 @@ import RoomDetails from "../Pages/RoomDetails/RoomDetails";
 import Sppiner from "../Pages/Shared/Sppiner";
 import MyBookings from "../Pages/MyBookings/MyBookings";
 import PrivateRouter from "../Routes/PrivateRouter";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
       },
+      {
+        path:'/aboutUs',
+        element:<AboutUs/>
+      },
+      {
+        path:'/contactUs',
+        element:<ContactUs/>
+      }
     ],
   },
 ]);

@@ -11,13 +11,13 @@ const Review = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/rooms/all-review")
+      .get("https://booking-com-server-murex.vercel.app/rooms/all-review")
       .then((res) => {
         setReviews(res.data);
       })
       .catch(() => {});
   }, []);
-  console.log(reviews);
+  // console.log(reviews);
   return (
     <div className="max-w-screen-2xl w-11/12 mx-auto my-10 overflow-hidden">
         <h3 className="text-center text-2xl md:text-4xl font-bold my-5">Our Customers Review</h3>
@@ -37,8 +37,8 @@ const Review = () => {
         modules={[Pagination]}
         className="reviewSwiper"
       >
-        {reviews?.map((review) => (
-          <SwiperSlide key={review._id}>
+        {reviews?.map((review,index) => (
+          <SwiperSlide key={`${review._id}+${index}`}>
             <div className="bg-white p-5 shadow-2xl text-center w-full ">
               <h2 className="text-sm font-bold text-gray-800 mb-2">
                 {review.user}

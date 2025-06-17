@@ -21,8 +21,12 @@ const RoomDetails = () => {
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
+    {
+      document.title = "Room Details";
+    }
+
     axios
-      .get(`http://localhost:5000/rooms/${roomId}`)
+      .get(`https://booking-com-server-murex.vercel.app/rooms/${roomId}`)
       .then((res) => {
         setRoomData(res.data);
       })
@@ -68,7 +72,7 @@ const RoomDetails = () => {
       bookingDate: selectedDate,
     };
 
-   axiosSecure
+    axiosSecure
       .post(`/booking`, bookRoomData)
       .then((res) => {
         if (res.data.success && res.data.insertedId) {
@@ -84,6 +88,9 @@ const RoomDetails = () => {
 
   return (
     <div className="max-w-screen-2xl w-11/12 mx-auto my-10">
+      <h3 className="text-center text-2xl md:text-4xl font-bold">
+        Room Details
+      </h3>
       <div className="max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-md">
         <img
           className="w-full h-80 object-cover rounded-xl mb-6"

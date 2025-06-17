@@ -3,7 +3,7 @@ import React from "react";
 import useAuth from "./useAuth";
 
 const AxiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://booking-com-server-murex.vercel.app",
 });
 const useAxiosSecure = () => {
   const { user, userSignOut } = useAuth();
@@ -21,10 +21,10 @@ const useAxiosSecure = () => {
       if (error.status === 401 || error.status === 403) {
         userSignOut()
           .then(() => {
-            console.log("Sign out user for 401 status code");
+            // console.log("Sign out user for 401 status code");
           })
-          .catch((err) => {
-            console.log(err);
+          .catch(() => {
+            // console.log(err);
           });
       }
     }

@@ -43,11 +43,34 @@ const Navbar = () => {
       >
         <li>My Bookings</li>
       </NavLink>
+      <NavLink
+        to={"/aboutUs"}
+        onClick={() => setMobileMenuShow(false)}
+        className={({ isActive }) =>
+          `${
+            isActive ? "text-blue-500 font-bold" : "text-gray-600"
+          } hover:text-blue-500`
+        }
+      >
+        <li>About Us</li>
+      </NavLink>
+      <NavLink
+        to={"/contactUs"}
+        onClick={() => setMobileMenuShow(false)}
+        className={({ isActive }) =>
+          `${
+            isActive ? "text-blue-500 font-bold" : "text-gray-600"
+          } hover:text-blue-500`
+        }
+      >
+        <li>Contact Us</li>
+      </NavLink>
     </>
   );
   const handlerLogout = () => {
     userSignOut()
     .then(()=>{
+      localStorage.removeItem("specialOfferShown");
       toast.success("Logout Successfully");
     })
     .catch((err)=>{

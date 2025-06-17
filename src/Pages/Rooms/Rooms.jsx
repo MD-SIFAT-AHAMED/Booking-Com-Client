@@ -15,7 +15,7 @@ const Rooms = () => {
       document.title = "Booking.com | Rooms";
     }
     axios
-      .get(`http://localhost:5000/rooms?min=${min}&max=${max}`)
+      .get(`https://booking-com-server-murex.vercel.app/rooms?min=${min}&max=${max}`)
       .then((res) => {
         setRooms(res.data);
         setReload(false);
