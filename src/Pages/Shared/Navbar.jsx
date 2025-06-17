@@ -124,7 +124,7 @@ const Navbar = () => {
         ) : (
           <div className="flex items-center gap-2">
             <Link to={"/register"}>
-              <p className="bg-blue-500 py-2 px-4 rounded-full text-white font-semibold hover:bg-blue-700">
+              <p className="hidden md:block bg-blue-500 py-2 px-4 rounded-full text-white font-semibold hover:bg-blue-700">
                 Register
               </p>
             </Link>
