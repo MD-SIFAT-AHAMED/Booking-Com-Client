@@ -6,7 +6,7 @@ const HotelLocation = () => {
   const position = [23.7906485, 90.412521];
 
   return (
-    <div className="max-w-screen-2xl w-11/12 mx-auto my-10">
+    <div className="max-w-screen-2xl w-11/12 mx-auto my-10 z-0">
       <h2 className="text-2xl text-center my-4 md:text-4xl font-bold">
         Hotel Location
       </h2>
@@ -14,7 +14,7 @@ const HotelLocation = () => {
         center={position}
         zoom={13}
         scrollWheelZoom={false}
-        style={{ height: "450px", width: "100%" }}
+        style={{ height: "450px", width: "100%" , zIndex: 0}}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'

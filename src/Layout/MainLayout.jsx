@@ -6,7 +6,9 @@ import { Outlet } from "react-router";
 const MainLayout = () => {
   return (
     <div>
-      <Navbar />
+      <div className="mb-20">
+        <Navbar />
+      </div>
       <Outlet />
       <Footer />
     </div>

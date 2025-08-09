@@ -6,7 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 const Navbar = () => {
   const [mobileMenuShow, setMobileMenuShow] = useState(false);
-  const { user ,userSignOut} = useAuth();
+  const { user, userSignOut } = useAuth();
 
   const links = (
     <>
@@ -15,8 +15,8 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-blue-500 font-bold" : "text-gray-600"
-          } hover:text-blue-500`
+            isActive ? "text-primary font-bold" : "text-gray-600"
+          } hover:text-primary`
         }
       >
         <li>Home</li>
@@ -26,8 +26,8 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-blue-500 font-bold" : "text-gray-600"
-          } hover:text-blue-500`
+            isActive ? "text-primary font-bold" : "text-gray-600"
+          } hover:text-primary`
         }
       >
         <li>Rooms</li>
@@ -37,8 +37,8 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-blue-500 font-bold" : "text-gray-600"
-          } hover:text-blue-500`
+            isActive ? "text-primary font-bold" : "text-gray-600"
+          } hover:text-primary`
         }
       >
         <li>My Bookings</li>
@@ -48,8 +48,8 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-blue-500 font-bold" : "text-gray-600"
-          } hover:text-blue-500`
+            isActive ? "text-primary font-bold" : "text-gray-600"
+          } hover:text-primary`
         }
       >
         <li>About Us</li>
@@ -59,8 +59,8 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-blue-500 font-bold" : "text-gray-600"
-          } hover:text-blue-500`
+            isActive ? "text-primary font-bold" : "text-gray-600"
+          } hover:text-primary`
         }
       >
         <li>Contact Us</li>
@@ -69,85 +69,88 @@ const Navbar = () => {
   );
   const handlerLogout = () => {
     userSignOut()
-    .then(()=>{
-      localStorage.removeItem("specialOfferShown");
-      toast.success("Logout Successfully");
-    })
-    .catch((err)=>{
-      toast.error(err.code);
-    })
+      .then(() => {
+        localStorage.removeItem("specialOfferShown");
+        toast.success("Logout Successfully");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
   };
   return (
-    <div className="max-w-screen-2xl w-11/12 mx-auto my-5">
-      <div className="flex justify-between items-center">
-        <div
-          onClick={() => setMobileMenuShow((prev) => !prev)}
-          className="md:hidden cursor-pointer"
-        >
-          <RxHamburgerMenu size={25} />
-        </div>
-        <div className="flex justify-center items-center gap-2">
-          <figure>
-            <img className="w-10" src={logo} alt="" />
-          </figure>
-          <Link to={"/"}>
-            <h3 className="text-2xl font-bold text-blue-500">
-              Booking.<span>Com</span>
-            </h3>
-          </Link>
-        </div>
+    <div className="backdrop-blur-xl bg-gradient-to-t from-primary/2 via-base-100/50 to-primary/8 fixed w-full top-0 left-0  z-50  border-b border-dashed border-primary/30">
+      <div className="max-w-screen-2xl w-11/12 mx-auto my-4  ">
+        <div className="flex justify-between items-center">
+          <div
+            onClick={() => setMobileMenuShow((prev) => !prev)}
+            className="md:hidden cursor-pointer"
+          >
+            <RxHamburgerMenu size={25} />
+          </div>
+          <div className="flex justify-center items-center gap-2">
+            <figure>
+              <img className="w-10" src={logo} alt="" />
+            </figure>
+            <Link to={"/"}>
+              <h3 className="text-2xl font-bold text-primary">
+                Booking.<span>Com</span>
+              </h3>
+            </Link>
+          </div>
 
-        <ul className="hidden md:flex items-center mr-30 gap-4 ">{links}</ul>
+          <ul className="hidden md:flex items-center mr-30 gap-4 ">{links}</ul>
 
-        {user ? (
-          <div className="dropdown dropdown-end ">
-            <div tabIndex={0} role="button">
-              <div className="avatar avatar-online">
-                <div className="w-10 rounded-full">
-                  <img src={user.photoURL} />
+          {user ? (
+            <div className="dropdown dropdown-end ">
+              <div tabIndex={0} role="button">
+                <div className="avatar avatar-online">
+                  <div className="w-10 rounded-full">
+                    <img src={user.photoURL} />
+                  </div>
                 </div>
               </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-5 shadow-sm border-blue-200 border"
-            >
-              <p className="text-center my-2">{user.displayName}</p>
-              <button
-                onClick={handlerLogout}
-                className="btn text-white bg-red-500"
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-5 shadow-sm border-blue-200 border"
               >
-                Log Out
-              </button>
-            </ul>
-          </div>
-        ) : (
-          <div className="flex items-center gap-2">
-            <Link to={"/register"}>
-              <p className="hidden md:block bg-blue-500 py-2 px-4 rounded-full text-white font-semibold hover:bg-blue-700">
-                Register
-              </p>
-            </Link>
-            <Link to={"/login"}>
-              <p className="bg-blue-500 py-2 px-4 rounded-full text-white font-semibold hover:bg-blue-700">
-                Log in
-              </p>
-            </Link>
-          </div>
-        )}
-      </div>
-      {/* Mobile device */}
+                <p className="text-center my-2">{user.displayName}</p>
+                <button
+                  onClick={handlerLogout}
+                  className="btn text-white bg-red-500"
+                >
+                  Log Out
+                </button>
+              </ul>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Link to={"/register"}>
+                <p className="hidden md:block py-2 px-4 rounded text-sm text-white font-semibold bg-primary/80 hover:bg-primary">
+                  Register
+                </p>
+              </Link>
+              <Link to={"/login"}>
+                <p className=" py-2 px-4 rounded text-white text-sm font-semibold bg-primary/80 hover:bg-primary">
+                  Log in
+                </p>
+              </Link>
+            </div>
+          )}
+        </div>
 
-      <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out transform origin-top ${
-          mobileMenuShow
-            ? "max-h-96 scale-y-100 opacity-100"
-            : "max-h-0 scale-y-0 opacity-0"
-        }`}
-      >
-        <ul className="flex flex-col space-y-1 *:border-b-2 *:border-gray-600 *:pb-1">
-          {links}
-        </ul>
+        {/* Mobile device */}
+
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-in-out transform origin-top ${
+            mobileMenuShow
+              ? "max-h-96 scale-y-100 opacity-100"
+              : "max-h-0 scale-y-0 opacity-0"
+          }`}
+        >
+          <ul className="flex flex-col space-y-1 *:border-b-1 *:border-gray-600 *:pb-1 pt-3">
+            {links}
+          </ul>
+        </div>
       </div>
     </div>
   );

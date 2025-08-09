@@ -34,6 +34,6 @@ const Home = () => {
       <Faq />
     </div>
   );
-};
+};  
 
 export default Home;

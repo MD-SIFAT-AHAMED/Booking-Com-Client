@@ -1,10 +1,11 @@
 import axios from "axios";
 import React from "react";
 import useAuth from "./useAuth";
-
+// "https://booking-com-server-murex.vercel.app"
 const AxiosInstance = axios.create({
-  baseURL: "https://booking-com-server-murex.vercel.app",
+  baseURL: "http://localhost:5000",
 });
+
 const useAxiosSecure = () => {
   const { user, userSignOut } = useAuth();
 

@@ -41,7 +41,7 @@ const Banner = () => {
       >
         {sliderData.map((banner) => (
           <SwiperSlide key={banner.id}>
-            <div className="relative h-[400px] md:[600px] w-full ">
+            <div className="relative h-[400px] md:h-[550px] w-full ">
               <img
                 className="w-full h-full object-cover rounded-xl"
                 src={banner.image}
@@ -53,16 +53,16 @@ const Banner = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 // viewport={{once:true}}
 
-                className="absolute top-[40%] left-2 md:left-[10%] space-y-2 bg-white/70 rounded p-5 md:p-10"
+                className="absolute top-[40%] right-2 md:right-30 left-2 md:left-[10%] space-y-2 bg-white/80 rounded p-5 md:p-10"
               >
-                <h2 className=" text-2xl md:text-5xl text-black/70 text-shadow-lg font-bold">
+                <h2 className=" text-2xl md:text-5xl text-black/85 text-shadow-lg font-bold">
                   {banner.heading}
                 </h2>
-                <p className="md:text-lg font-semibold text-black/70">
+                <p className="md:text-lg font-semibold text-black/85">
                   {banner.description}
                 </p>
                 <Link to={'/rooms'}>
-                  <button className="btn border-none text-black/70 bg-gray-200 rounded-lg">
+                  <button className="btn border-none text-black/85 bg-primary rounded-lg">
                     Explore Room
                   </button>
                 </Link>
