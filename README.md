@@ -3,6 +3,7 @@
 *Booking.com* is a full-featured web application that allows users to easily book hotels and rooms online. Users can browse available rooms, make bookings, leave reviews, and manage their bookings (cancel/delete).
 
 ---
+🌍 Live Demo: https://explore-email-password-a-86d53.web.app/
 
 ## 🚀 Features
 
@@ -30,4 +31,22 @@
 - *JWT (JSON Web Token)* – For protected routes and authorization
 
 ---
+
+## 💻 How to Run Locally
+
+Follow these steps to set up **CookNext** on your local machine:
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/MD-SIFAT-AHAMED/Booking-Com-Client.git
+   cd Booking-Com-Client
+
+
+ 2. **Install Dependencies**
+    ```bash
+    npm install
+    
+4. **Run**
+   ```bash
+     npm run dev
 
