@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import FeaturedRoomCard from "./FeaturedRoomCard";
+import HeaderSection from "../../Components/HeaderSection/HeaderSection";
 
 const FeaturedRooms = () => {
   const [topRoom, setTopRoom] = useState();
@@ -19,10 +20,13 @@ const FeaturedRooms = () => {
 
   return (
     <div className="max-w-screen-2xl w-11/12 mx-auto my-10">
-      <h3 className="text-center text-2xl md:text-4xl font-bold my-5">
-        Featured Rooms
-      </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <HeaderSection
+        title=" Featured Rooms"
+        subtitle="Discover our selection of premium rooms, each designed to offer exceptional comfort, modern amenities, and a truly memorable stay"
+      />
+
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {topRoom?.map((room) => (
           <FeaturedRoomCard key={room._id} room={room} />
         ))}

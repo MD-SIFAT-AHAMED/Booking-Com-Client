@@ -78,12 +78,12 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="backdrop-blur-xl bg-gradient-to-t from-primary/2 via-base-100/50 to-primary/8 fixed w-full top-0 left-0  z-50  border-b border-dashed border-primary/30">
+    <div className="backdrop-blur-xl bg-gradient-to-t from-white via-base-100/50 to-white/8 fixed w-full top-0 left-0  z-50  border-b border-dashed border-primary/30">
       <div className="max-w-screen-2xl w-11/12 mx-auto my-4  ">
         <div className="flex justify-between items-center">
           <div
             onClick={() => setMobileMenuShow((prev) => !prev)}
-            className="md:hidden cursor-pointer"
+            className="lg:hidden cursor-pointer"
           >
             <RxHamburgerMenu size={25} />
           </div>
@@ -98,7 +98,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <ul className="hidden md:flex items-center mr-30 gap-4 ">{links}</ul>
+          <ul className="hidden lg:flex items-center mr-30 gap-4 ">{links}</ul>
 
           {user ? (
             <div className="dropdown dropdown-end ">
