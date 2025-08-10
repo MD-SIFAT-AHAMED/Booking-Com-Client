@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 import FeaturedRooms from "../FeaturedRooms/FeaturedRooms";
 import Review from "../Review/Review";
 import SpecialOffers from "./SpecialOffers";
+import AmenitiesAndServices from "./AmenitiesAndServices";
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Banner />
       <FeaturedRooms />
       <SpecialOffers />
+      <AmenitiesAndServices/>
       <Destination />
       <Review />
       <HotelLocation />
