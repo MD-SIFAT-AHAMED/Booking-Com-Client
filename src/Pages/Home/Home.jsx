@@ -7,6 +7,7 @@ import FeaturedRooms from "../FeaturedRooms/FeaturedRooms";
 import Review from "../Review/Review";
 import SpecialOffers from "./SpecialOffers";
 import AmenitiesAndServices from "./AmenitiesAndServices";
+import WhyChooseUs from "./WhyChooseUs";
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
       <SpecialOffers />
       <AmenitiesAndServices/>
       <Destination />
+      <WhyChooseUs/>
       <Review />
       <HotelLocation />
       <Faq />

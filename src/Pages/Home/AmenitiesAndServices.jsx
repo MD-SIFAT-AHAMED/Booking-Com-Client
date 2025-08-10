@@ -44,27 +44,27 @@ const AmenitiesAndServices = () => {
 
   return (
     <section className="max-w-screen-2xl mx-auto w-11/12">
-      <div className="max-w-screen-xl mx-auto px-4">
-        <HeaderSection
-          title="Amenities & Services"
-          subtitle="Enjoy top-notch facilities and services designed to make your stay
+      <HeaderSection
+        title="Amenities & Services"
+        subtitle="Enjoy top-notch facilities and services designed to make your stay
             unforgettable"
-        />
+      />
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {amenities.map((item, index) => (
-            <div
-              key={index}
-              className="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition duration-300"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                {item.icon}
-                <h3 className="text-sm md:text-xl font-semibold text-secondary">{item.title}</h3>
-              </div>
-              <p className="text-xs md:text-sm text-gray-600">{item.desc}</p>
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {amenities.map((item, index) => (
+          <div
+            key={index}
+            className="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition duration-300"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              {item.icon}
+              <h3 className="text-sm md:text-xl font-semibold text-secondary">
+                {item.title}
+              </h3>
             </div>
-          ))}
-        </div>
+            <p className="text-xs md:text-sm text-gray-600">{item.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
