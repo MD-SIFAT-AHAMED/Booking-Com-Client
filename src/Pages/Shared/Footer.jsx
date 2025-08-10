@@ -9,7 +9,7 @@ const Footer = () => {
           <aside>
             <img className="w-15" src={logo} alt="" />
             <p>
-              <span className="text-2xl font-bold text-blue-500">
+              <span className="text-2xl font-bold text-primary">
                 {" "}
                 Booking.Com
               </span>
