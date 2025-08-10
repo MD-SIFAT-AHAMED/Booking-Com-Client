@@ -37,7 +37,7 @@ const RestaurantDining = () => {
       />
       <div className="grid md:grid-cols-3 gap-8">
         {diningItems.map((diningItem, idx) => (
-          <div key={idx} className="bg-white shadow rounded overflow-hidden">
+          <div key={idx} className="bg-base-100 shadow rounded overflow-hidden">
             <img
               src={diningItem.image}
               alt={diningItem.title}
@@ -47,7 +47,7 @@ const RestaurantDining = () => {
               <h3 className="text-base text-secondary lg:text-lg font-semibold">
                 {diningItem.title}
               </h3>
-              <p className="text-xs md:text-sm text-gray-600 my-2">
+              <p className="text-xs md:text-sm  my-2">
                 {diningItem.description}
               </p>
             </div>

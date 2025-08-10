@@ -4,11 +4,17 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import HeaderSection from "../../Components/HeaderSection/HeaderSection";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-    const {createUserWithEmail,UserUpdateProfile,signInWithGoogle,setLoading} = useAuth();
-    const navigate = useNavigate();
+  const {
+    createUserWithEmail,
+    UserUpdateProfile,
+    signInWithGoogle,
+    setLoading,
+  } = useAuth();
+  const navigate = useNavigate();
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -25,8 +31,8 @@ const Register = () => {
     if (!Regex.test(password)) {
       return toast.error("Password must be 6+ chars with upper & lower case");
     }
-    
-     createUserWithEmail(email, password)
+
+    createUserWithEmail(email, password)
       .then(() => {
         UserUpdateProfile(UpdateUserData)
           .then(() => {
@@ -44,7 +50,7 @@ const Register = () => {
       });
   };
 
-  const handlerGoogle =()=>{
+  const handlerGoogle = () => {
     signInWithGoogle()
       .then(() => {
         toast.success("Login Successfully");
@@ -53,19 +59,17 @@ const Register = () => {
       .catch((err) => {
         toast.error(err.code);
       });
-  }
+  };
 
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-100">
       <div className="max-w-screen-2xl w-11/12 mx-auto place-items-center py-10">
         <div>
+          <HeaderSection title="Register" />
           <form
             onSubmit={handlerSubmit}
-            className="fieldset border-base-300 rounded-box w-xs md:w-md border md:text-base p-4 *:focus:outline-none *:border-none "
+            className="fieldset rounded-box w-xs md:w-lg  md:text-sm p-4 md:px-7 *:focus:outline-none shadow  *:border-none "
           >
-            <h3 className="text-2xl md:text-4xl text-center font-semibold">
-              Register
-            </h3>
             <label>Name</label>
             <input
               type="text"
@@ -116,12 +120,12 @@ const Register = () => {
 
             <input
               type="submit"
-              className=" md:text-base mt-1 btn text-white bg-blue-500"
+              className=" md:text-base mt-1 btn text-white bg-primary"
               value="Register"
             />
           </form>
-          <div className="flex justify-center items-center flex-col space-y-2">
-            <p className="text-center">
+          <div className="flex justify-center items-center flex-col space-y-2 pt-5">
+            <p className="text-center text-sm">
               Already have an account ?
               <Link to={"/login"}>
                 <span className="underline cursor-pointer"> Login</span>
@@ -130,7 +134,7 @@ const Register = () => {
             </p>
             <span
               onClick={handlerGoogle}
-              className="flex gap-2 btn border-none"
+              className="flex gap-2 text-sm btn border-none"
             >
               <FcGoogle size={25} />
               Login with Google

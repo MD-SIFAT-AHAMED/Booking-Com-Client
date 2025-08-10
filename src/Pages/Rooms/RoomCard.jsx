@@ -28,7 +28,7 @@ const RoomCard = ({ room }) => {
           {title}
         </h2>
 
-        <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
+        <p className="text-xs md:text-sm  line-clamp-2">
           {description?.slice(0, 100)}...
         </p>
 
@@ -37,7 +37,7 @@ const RoomCard = ({ room }) => {
           <div className="flex text-xs md:text-sm items-center gap-1 text-yellow-500 font-medium">
             <FaStar />
             {averageRating}
-            <span className="text-gray-500">({reviews.length} reviews)</span>
+            <span>({reviews.length} reviews)</span>
           </div>
           {/* Price */}
           <div className="hidden lg:flex">

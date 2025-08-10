@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import FeaturedRoomCard from "./FeaturedRoomCard";
 import HeaderSection from "../../Components/HeaderSection/HeaderSection";
+import { Link } from "react-router";
 
 const FeaturedRooms = () => {
   const [topRoom, setTopRoom] = useState();
@@ -32,7 +33,7 @@ const FeaturedRooms = () => {
         ))}
       </div>
       <div className="text-center mt-10">
-        <button className="btn bg-primary text-white ">See All Rooms</button>
+        <Link to={'/rooms'} className="btn bg-primary text-white ">See All Rooms</Link>
       </div>
     </div>
   );

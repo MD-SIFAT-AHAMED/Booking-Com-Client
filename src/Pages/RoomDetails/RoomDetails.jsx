@@ -97,7 +97,7 @@ const RoomDetails = () => {
         title="Room Details"
         subtitle="Discover everything you need to know about this room — comfort features, availability, and guest feedback"
       />
-      <div className="bg-white rounded-xl  p-6 flex flex-col md:flex-row gap-8">
+      <div className="bg-base-100 rounded-xl  p-6 flex flex-col md:flex-row  gap-8">
         {/* Image */}
         <img
           className="w-full md:w-1/2 h-80 object-cover rounded-xl"
@@ -106,11 +106,13 @@ const RoomDetails = () => {
         />
 
         {/* Details */}
-        <div className="flex-1 flex flex-col">
-          <h2 className="text-xl lg:text-2xl text-primary font-bold mb-2">{title}</h2>
-          <p className="text-sm text-gray-600 mb-4">{description}</p>
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <h2 className="text-xl lg:text-2xl text-primary font-bold mb-2">
+            {title}
+          </h2>
+          <p className="text-sm  mb-4">{description}</p>
 
-          <div className="grid grid-cols-2 gap-4 text-sm text-gray-700 mb-4">
+          <div className="grid grid-cols-2 gap-4 text-sm  mb-4">
             <p>
               <strong>Price:</strong> ${price}
             </p>
@@ -142,11 +144,14 @@ const RoomDetails = () => {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Reviews</h3>
-            <div className="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide">
+            <div
+              className="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide max-w-full"
+              style={{ whiteSpace: "nowrap" }}
+            >
               {reviews.map((review) => (
                 <div
                   key={review.id}
-                  className="flex-shrink-0 w-72 bg-gray-100 p-4 rounded"
+                  className="flex-shrink-0 w-72 p-4 rounded"
                 >
                   <p className="text-sm font-semibold mb-1">{review.user}</p>
                   <p className="flex items-center gap-1 text-yellow-500 mb-2">

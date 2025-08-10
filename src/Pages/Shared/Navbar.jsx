@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
   const [mobileMenuShow, setMobileMenuShow] = useState(false);
   const { user, userSignOut } = useAuth();
@@ -15,7 +16,7 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-primary font-bold" : "text-gray-600"
+            isActive ? "text-primary font-bold" : ""
           } hover:text-primary`
         }
       >
@@ -26,7 +27,7 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-primary font-bold" : "text-gray-600"
+            isActive ? "text-primary font-bold" : ""
           } hover:text-primary`
         }
       >
@@ -38,7 +39,7 @@ const Navbar = () => {
           onClick={() => setMobileMenuShow(false)}
           className={({ isActive }) =>
             `${
-              isActive ? "text-primary font-bold" : "text-gray-600"
+              isActive ? "text-primary font-bold" : ""
             } hover:text-primary`
           }
         >
@@ -50,7 +51,7 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-primary font-bold" : "text-gray-600"
+            isActive ? "text-primary font-bold" : ""
           } hover:text-primary`
         }
       >
@@ -61,7 +62,7 @@ const Navbar = () => {
         onClick={() => setMobileMenuShow(false)}
         className={({ isActive }) =>
           `${
-            isActive ? "text-primary font-bold" : "text-gray-600"
+            isActive ? "text-primary font-bold" : ""
           } hover:text-primary`
         }
       >
@@ -80,7 +81,7 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="backdrop-blur-xl bg-gradient-to-t from-white via-base-100/50 to-white/8 fixed w-full top-0 left-0  z-50  border-b border-dashed border-primary/30">
+    <div className="backdrop-blur-xl bg-gradient-to-t from-white/8 via-base-100/50 to-white/8 fixed w-full top-0 left-0 z-50  border-b border-dashed border-primary/30">
       <div className="max-w-screen-2xl w-11/12 mx-auto my-4  ">
         <div className="flex justify-between items-center">
           <div
@@ -111,6 +112,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
+              <ThemeToggle />
               <ul
                 tabIndex={0}
                 className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-5 shadow-sm border-blue-200 border"
@@ -126,6 +128,7 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex items-center gap-2">
+              <ThemeToggle />
               <Link to={"/register"}>
                 <p className="hidden md:block py-2 px-4 rounded text-sm text-white font-semibold bg-primary/80 hover:bg-primary">
                   Register

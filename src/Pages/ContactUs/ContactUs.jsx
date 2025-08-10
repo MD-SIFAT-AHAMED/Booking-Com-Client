@@ -30,15 +30,12 @@ const ContactUs = () => {
         title="Contact Us"
         subtitle="Have a question or special request? Contact us and we’ll respond promptly"
       />
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4 text-sm *:border-gray-200 *:outline-none"
-      >
+      <form onSubmit={handleSubmit} className="space-y-4 *:border *:border-gray-200 shadow-xs md:p-7 text-sm ">
         <input
           type="text"
           name="name"
           placeholder="Your Name"
-          className="w-full  border p-2 rounded"
+          className="w-full  p-2 rounded"
           value={formData.name}
           onChange={handleChange}
           required
@@ -47,7 +44,7 @@ const ContactUs = () => {
           type="email"
           name="email"
           placeholder="Your Email"
-          className="w-full border p-2 rounded"
+          className="w-full  p-2 rounded"
           value={formData.email}
           onChange={handleChange}
           required
@@ -56,7 +53,7 @@ const ContactUs = () => {
           name="message"
           placeholder="Your Message"
           rows="4"
-          className="w-full border p-2 rounded"
+          className="w-full  p-2 rounded"
           value={formData.message}
           onChange={handleChange}
           required

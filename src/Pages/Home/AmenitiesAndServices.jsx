@@ -54,7 +54,7 @@ const AmenitiesAndServices = () => {
         {amenities.map((item, index) => (
           <div
             key={index}
-            className="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition duration-300"
+            className="p-6 bg-base-100 rounded-2xl shadow hover:shadow-lg transition duration-300"
           >
             <div className="flex items-center gap-4 mb-4">
               {item.icon}
@@ -62,7 +62,7 @@ const AmenitiesAndServices = () => {
                 {item.title}
               </h3>
             </div>
-            <p className="text-xs md:text-sm text-gray-600">{item.desc}</p>
+            <p className="text-xs md:text-sm ">{item.desc}</p>
           </div>
         ))}
       </div>

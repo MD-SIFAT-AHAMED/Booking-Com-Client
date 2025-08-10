@@ -44,13 +44,13 @@ const WhyChooseUs = () => {
         {features.map((feature, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center hover:shadow transition-shadow duration-300"
+            className="bg-base-100 rounded-2xl shadow p-6 flex flex-col items-center text-center hover:shadow transition-shadow duration-300"
           >
             <div className="mb-4">{feature.icon}</div>
             <h3 className="text-sm md:text-xl text-secondary font-semibold mb-2">
               {feature.title}
             </h3>
-            <p className="text-xs md:text-sm text-gray-600">{feature.desc}</p>
+            <p className="text-xs md:text-sm ">{feature.desc}</p>
           </div>
         ))}
       </div>

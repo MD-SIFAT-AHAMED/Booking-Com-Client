@@ -40,7 +40,7 @@ const Rooms = () => {
       <div className="flex items-center justify-end my-5">
         <span className="text-lg font-extrabold"> Filter By Price :</span>
         <select
-          className="w-3xs border-1 px-2 py-1 border-gray-300 text-gray-700 ml-2 "
+          className="w-3xs border-1 px-2 py-1 border-gray-300 bg-base-100 ml-2 "
           onChange={(e) => {
             const [min, max] = e.target.value.split("-");
             setReload(true);

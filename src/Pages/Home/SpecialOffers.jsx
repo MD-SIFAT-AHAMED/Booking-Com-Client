@@ -34,7 +34,7 @@ const SpecialOffers = () => {
 
       <div className="grid md:grid-cols-3 gap-8">
         {offers.map((offer, idx) => (
-          <div key={idx} className="bg-white shadow-lg rounded overflow-hidden">
+          <div key={idx} className="bg-base-100 shadow-lg rounded overflow-hidden">
             <img
               src={offer.image}
               alt={offer.title}
@@ -44,12 +44,12 @@ const SpecialOffers = () => {
               <h3 className="text-base text-secondary lg:text-lg font-semibold">
                 {offer.title}
               </h3>
-              <p className="text-xs md:text-sm text-gray-600 my-2">
+              <p className="text-xs md:text-sm  my-2">
                 {offer.description}
               </p>
-              <button className="btn bg-primary text-white rounded-lg hover:bg-primary/90">
+              {/* <button className="btn bg-primary text-white rounded-lg hover:bg-primary/90">
                 Book Now
-              </button>
+              </button> */}
             </div>
           </div>
         ))}

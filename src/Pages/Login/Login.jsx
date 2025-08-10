@@ -4,6 +4,7 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
+import HeaderSection from "../../Components/HeaderSection/HeaderSection";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,22 +37,20 @@ const Login = () => {
       });
   };
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-100">
       <div className="max-w-screen-2xl w-11/12 mx-auto place-items-center py-10">
         <div>
+          <HeaderSection title="Login" />
           <form
             onSubmit={handlerSubmit}
-            className="fieldset border-base-300 rounded-box w-xs md:w-md border md:text-base p-4 *:focus:outline-none *:border-none *:w-full"
+            className="fieldset md:text-sm  rounded-box w-xs md:w-lg shadow p-4 md:px-7 *:focus:outline-none *:border-none *:w-full"
           >
-            <h3 className="text-2xl md:text-4xl text-center font-semibold">
-              Login
-            </h3>
             <label>Email</label>
             <input
               type="email"
               name="email"
               required
-              className="input  rounded-lg"
+              className="input rounded-lg"
               placeholder="example@gmail.com"
             />
 
@@ -83,26 +82,21 @@ const Login = () => {
 
             <input
               type="submit"
-              className=" md:text-base btn text-white bg-blue-500"
+              className=" md:text-base btn text-white bg-primary"
               value="Log in"
             />
           </form>
-          <div
-            className="flex justify-center items-center flex-col space-y-2"
-          >
-            <p className="text-center">
+          <div className="flex justify-center items-center flex-col space-y-2 pt-4">
+            <p className="text-center text-sm">
               Don't have an account ?
               <Link to={"/register"}>
-                <span className="underline cursor-pointer">
-                  {" "}
-                  Register
-                </span>
+                <span className="underline cursor-pointer"> Register</span>
               </Link>
               <br /> Or
             </p>
             <span
               onClick={handlerGoogle}
-              className="flex gap-2 btn border-none"
+              className="flex text-sm gap-2 btn border-none"
             >
               <FcGoogle size={25} />
               Login with Google
