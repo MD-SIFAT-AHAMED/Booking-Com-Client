@@ -32,17 +32,19 @@ const Navbar = () => {
       >
         <li>Rooms</li>
       </NavLink>
-      <NavLink
-        to={"/myBookings"}
-        onClick={() => setMobileMenuShow(false)}
-        className={({ isActive }) =>
-          `${
-            isActive ? "text-primary font-bold" : "text-gray-600"
-          } hover:text-primary`
-        }
-      >
-        <li>My Bookings</li>
-      </NavLink>
+      {user && (
+        <NavLink
+          to={"/myBookings"}
+          onClick={() => setMobileMenuShow(false)}
+          className={({ isActive }) =>
+            `${
+              isActive ? "text-primary font-bold" : "text-gray-600"
+            } hover:text-primary`
+          }
+        >
+          <li>My Bookings</li>
+        </NavLink>
+      )}
       <NavLink
         to={"/aboutUs"}
         onClick={() => setMobileMenuShow(false)}

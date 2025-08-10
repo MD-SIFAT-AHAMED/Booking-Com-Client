@@ -8,8 +8,9 @@ const FeaturedRooms = () => {
   const [topRoom, setTopRoom] = useState();
 
   useEffect(() => {
+    // https://booking-com-server-murex.vercel.app/rooms/top
     axios
-      .get("https://booking-com-server-murex.vercel.app/rooms/top")
+      .get("http://localhost:5000/rooms/top")
       .then((res) => {
         setTopRoom(res.data);
       })
