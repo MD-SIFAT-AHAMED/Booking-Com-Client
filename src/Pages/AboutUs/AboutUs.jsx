@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import HeaderSection from "../../Components/HeaderSection/HeaderSection";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -8,9 +9,11 @@ const AboutUs = () => {
   });
   return (
     <div>
-      <div className="max-w-screen-2xl min-h-80 w-11/12 mx-auto bg-base-200 p-5 my-10">
-        <h1 className="text-3xl font-bold mb-4 text-center">About Us</h1>
-        <p className="text-gray-700  w-9/10 mx-auto text-center leading-7">
+      <div className="max-w-screen-2xl min-h-80 w-11/12 mx-auto p-5 my-10">
+        <HeaderSection 
+        title="About Us"
+        />
+        <p className="text-sm md:text-lg text-gray-700 w-9/10 mx-auto text-center leading-7">
           Welcome to Booking.com! We are dedicated to providing the best hotel
           booking experience. Whether you're planning a relaxing vacation or a
           business trip, we aim to make your stay comfortable and memorable.
