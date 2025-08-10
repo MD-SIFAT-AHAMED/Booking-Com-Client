@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import HeaderSection from "../../Components/HeaderSection/HeaderSection";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -24,17 +25,20 @@ const ContactUs = () => {
     setFormData({ name: "", email: "", message: "" });
   };
   return (
-    <div className="max-w-screen-2xl w-11/12 bg-base-200 mx-auto p-10 my-10">
-      <h1 className="text-3xl font-bold mb-6 text-center">Contact Us</h1>
+    <div className="max-w-screen-2xl w-11/12 mx-auto px-10 py-5">
+      <HeaderSection
+        title="Contact Us"
+        subtitle="Have a question or special request? Contact us and we’ll respond promptly"
+      />
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 *:border-gray-200 *:outline-none"
+        className="space-y-4 text-sm *:border-gray-200 *:outline-none"
       >
         <input
           type="text"
           name="name"
           placeholder="Your Name"
-          className="w-full border p-2 rounded"
+          className="w-full  border p-2 rounded"
           value={formData.name}
           onChange={handleChange}
           required
@@ -59,7 +63,7 @@ const ContactUs = () => {
         ></textarea>
         <button
           type="submit"
-          className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+          className="bg-primary text-white px-6 py-2 rounded "
         >
           Send Message
         </button>
