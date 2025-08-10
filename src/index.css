@@ -15,7 +15,7 @@
   name: "light";
   default: true; /* set as default */
   --color-primary: #b19959;
-  --color-secondary: #a7d5a4;
+  --color-secondary: #5a4317;
   --color-base-100: #FFFFFF;
   --color-base-200: #F5F5F7;
 }

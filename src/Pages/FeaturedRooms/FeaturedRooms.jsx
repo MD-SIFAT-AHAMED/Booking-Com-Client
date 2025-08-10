@@ -20,7 +20,6 @@ const FeaturedRooms = () => {
 
   return (
     <div className="max-w-screen-2xl w-11/12 mx-auto my-10">
-
       <HeaderSection
         title=" Featured Rooms"
         subtitle="Discover our selection of premium rooms, each designed to offer exceptional comfort, modern amenities, and a truly memorable stay"
@@ -30,6 +29,9 @@ const FeaturedRooms = () => {
         {topRoom?.map((room) => (
           <FeaturedRoomCard key={room._id} room={room} />
         ))}
+      </div>
+      <div className="text-center mt-10">
+        <button className="btn bg-primary text-white ">See All Rooms</button>
       </div>
     </div>
   );

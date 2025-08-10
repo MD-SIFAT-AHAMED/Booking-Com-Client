@@ -5,6 +5,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../../Style/Review.css";
+import HeaderSection from "../../Components/HeaderSection/HeaderSection";
 
 const Review = () => {
   const [reviews, setReviews] = useState();
@@ -19,10 +20,12 @@ const Review = () => {
   }, []);
   // console.log(reviews);
   return (
-    <div className="max-w-screen-2xl w-11/12 mx-auto my-10 overflow-hidden">
-        <h3 className="text-center text-2xl md:text-4xl font-bold my-5">Our Customers Review</h3>
+    <div className="max-w-screen-2xl w-11/12 mx-auto my-10 overflow-hidden bg-white">
+        <HeaderSection title="Our Customers Review" 
+        subtitle="Discover what our guests have to say about their experiences with us — from the warm welcome at check-in to the comfort of their rooms and the unforgettable memories they’ve made during their stay."
+        />
       <Swiper
-        slidesPerView={1}
+        slidesPerView={2}
         spaceBetween={10}
         breakpoints={{
           768: {

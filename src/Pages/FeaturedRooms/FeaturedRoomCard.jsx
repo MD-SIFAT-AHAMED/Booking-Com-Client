@@ -24,28 +24,28 @@ const FeaturedRoomCard = ({ room }) => {
       </figure>
 
       <div className="card-body">
-        <h2 className="text-lg font-semibold">{title}</h2>
+        <h2 className="text-base text-secondary lg:text-lg font-semibold">{title}</h2>
 
-        <p className="text-xs text-gray-600 line-clamp-2">
+        <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
           {description?.slice(0, 100)}...
         </p>
 
         <div className="flex justify-between items-center mt-2">
           {/* Rating */}
-          <div className="flex text-xs items-center gap-1 text-yellow-500 font-medium">
+          <div className="flex text-xs md:text-sm items-center gap-1 text-yellow-500 font-medium">
             <FaStar />
             {averageRating}
-            <span className="text-gray-500 ml-1">
+            <span className="text-gray-500">
               ({reviews.length} reviews)
             </span>
           </div>
           {/* Price */}
           <div className="hidden lg:flex">
-            <p className="text-[#876527] text-xs font-semibold">${price}/night</p>
+            <p className="text-[#876527] text-xs md:text-sm font-semibold">${price}/night</p>
           </div>
         </div>
         <div className="lg:hidden">
-          <p className="text-[#5a4317] text-xs font-semibold">${price}/night</p>
+          <p className="text-[#5a4317] text-xs md:text-sm font-semibold">${price}/night</p>
         </div>
 
         <div className="card-actions justify-end mt-4">
