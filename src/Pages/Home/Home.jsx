@@ -8,7 +8,7 @@ import Review from "../Review/Review";
 import SpecialOffers from "./SpecialOffers";
 import AmenitiesAndServices from "./AmenitiesAndServices";
 import WhyChooseUs from "./WhyChooseUs";
-
+import RestaurantDining from "./RestaurantDining ";
 
 const Home = () => {
   return (
@@ -16,9 +16,10 @@ const Home = () => {
       <Banner />
       <FeaturedRooms />
       <SpecialOffers />
-      <AmenitiesAndServices/>
+      <RestaurantDining />
+      <AmenitiesAndServices />
       <Destination />
-      <WhyChooseUs/>
+      <WhyChooseUs />
       <Review />
       <HotelLocation />
       <Faq />

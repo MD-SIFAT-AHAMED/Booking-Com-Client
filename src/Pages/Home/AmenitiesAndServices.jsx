@@ -43,7 +43,7 @@ const AmenitiesAndServices = () => {
   ];
 
   return (
-    <section className="max-w-screen-2xl mx-auto w-11/12">
+    <section className="max-w-screen-2xl mx-auto w-11/12 ">
       <HeaderSection
         title="Amenities & Services"
         subtitle="Enjoy top-notch facilities and services designed to make your stay
